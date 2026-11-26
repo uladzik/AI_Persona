@@ -5,7 +5,8 @@
   "scripts": {
     "faces": "tsx --env-file=.env src/faces.ts",
     "scenes": "tsx --env-file=.env src/scenes.ts",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "explore": "tsx --env-file=.env src/explore.ts"
   },
   "dependencies": {
     "@fal-ai/client": "1.11.0"
