@@ -7,6 +7,7 @@
   "required": ["id", "name", "age", "appearance", "voice", "content", "disclosure", "products"],
   "additionalProperties": false,
   "properties": {
+    "$schema": { "type": "string" },
     "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
     "name": { "type": ["string", "null"], "description": "null until the owner picks a name" },
     "age": { "type": "integer", "minimum": 21, "description": "The persona is always an adult" },
