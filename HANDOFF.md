@@ -9,7 +9,8 @@
 - Ветка `dev`, канон персонажа `persona/persona.json` + схема `persona/persona.schema.json`, `CLAUDE.md`.
 - GitHub `uladzik/AI_Persona` (публичный), `dev` запушен, `main` из GitHub влит merge-коммитом.
 - Коммиты: `.githooks/commit-msg` + `.no-auto-commit`; отчёт: `.github/workflows/daily-report.yml` → ветка `reports`.
-- Cron отчёта заработает только когда workflow окажется в `main` (GitHub запускает schedule лишь из default-ветки).
+- PR #1 `dev` → `main` смёржен (`38920fc`); ручной прогон отчёта успешен, `reports/2026-11-26.md` в ветке `reports`.
+- Язык канала: английский (`voice.language = en`); язык кода по умолчанию TypeScript.
 - В истории `dev` остались 8 коммитов `chore(auto)` до введения правил: rewrite отклонён, оставлены как есть.
 
 **Gaps / pending (ждут владельца):**
