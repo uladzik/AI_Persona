@@ -1,0 +1,28 @@
+{
+  "$schema": "./persona.schema.json",
+  "id": "persona-01",
+  "name": null,
+  "age": 25,
+  "appearance": {
+    "build": "athletic, toned, sporty",
+    "face": "attractive, natural look, freckles across nose and cheeks",
+    "skin": "light skin with visible natural freckles, realistic skin texture",
+    "hair": null,
+    "eyes": null,
+    "style": null,
+    "negative": ["minor-looking features", "plastic skin", "extra fingers", "text or watermarks"]
+  },
+  "voice": {
+    "language": null,
+    "tone": null
+  },
+  "content": {
+    "platforms": [],
+    "pillars": []
+  },
+  "disclosure": {
+    "ai_label": "AI-generated character",
+    "ad_label": "Ad"
+  },
+  "products": []
+}
