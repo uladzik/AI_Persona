@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "persona.schema.json",
+  "title": "AI persona canon",
+  "description": "Single source of truth for the persona: every image prompt and caption is built from this file.",
+  "type": "object",
+  "required": ["id", "name", "age", "appearance", "voice", "content", "disclosure", "products"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "name": { "type": ["string", "null"], "description": "null until the owner picks a name" },
+    "age": { "type": "integer", "minimum": 21, "description": "The persona is always an adult" },
+    "appearance": {
+      "type": "object",
+      "required": ["build", "face", "skin", "hair", "eyes", "style"],
+      "additionalProperties": false,
+      "properties": {
+        "build": { "type": "string" },
+        "face": { "type": "string" },
+        "skin": { "type": "string" },
+        "hair": { "type": ["string", "null"] },
+        "eyes": { "type": ["string", "null"] },
+        "style": { "type": ["string", "null"] },
+        "negative": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Things the image model must never produce for this persona"
+        }
+      }
+    },
+    "voice": {
+      "type": "object",
+      "required": ["language", "tone"],
+      "additionalProperties": false,
+      "properties": {
+        "language": { "type": ["string", "null"] },
+        "tone": { "type": ["string", "null"] }
+      }
+    },
+    "content": {
+      "type": "object",
+      "required": ["platforms", "pillars"],
+      "additionalProperties": false,
+      "properties": {
+        "platforms": { "type": "array", "items": { "type": "string" } },
+        "pillars": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "disclosure": {
+      "type": "object",
+      "required": ["ai_label", "ad_label"],
+      "additionalProperties": false,
+      "properties": {
+        "ai_label": { "type": "string", "minLength": 1 },
+        "ad_label": { "type": "string", "minLength": 1 }
+      }
+    },
+    "products": {
+      "type": "array",
+      "description": "Owner's real products only; never invented",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "url"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "url": { "type": "string", "format": "uri" }
+        }
+      }
+    }
+  }
+}
