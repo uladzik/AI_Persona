@@ -1,0 +1,51 @@
+name: daily-report
+
+on:
+  schedule:
+    - cron: "30 22 * * *" # 23:30 Europe/Berlin (winter time)
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "YYYY-MM-DD (empty = today)"
+        required: false
+
+permissions:
+  contents: write
+
+env:
+  TZ: Europe/Berlin
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Build report
+        id: build
+        run: |
+          day="${{ inputs.date }}"
+          day="${day:-$(date +%F)}"
+          echo "day=$day" >> "$GITHUB_OUTPUT"
+          bash scripts/daily-report.sh "$day" > "$RUNNER_TEMP/report.md"
+          cat "$RUNNER_TEMP/report.md"
+          grep -q '^Коммитов за день: 0\.' "$RUNNER_TEMP/report.md" && echo "empty=1" >> "$GITHUB_OUTPUT" || true
+
+      - name: Commit to reports branch
+        if: steps.build.outputs.empty != '1'
+        run: |
+          day="${{ steps.build.outputs.day }}"
+          if git rev-parse -q --verify origin/reports >/dev/null; then
+            git switch -c reports origin/reports
+          else
+            git switch --orphan reports
+          fi
+          mkdir -p reports
+          cp "$RUNNER_TEMP/report.md" "reports/$day.md"
+          git add reports
+          git -c user.name="github-actions[bot]" \
+              -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+              commit -m "docs(report): $day" || exit 0
+          git push origin reports
