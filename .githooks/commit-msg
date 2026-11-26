@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+# Rejects commit messages that don't follow the convention in CLAUDE.md ("Коммиты").
+set -eu
+
+msg_file="$1"
+subject=$(head -n1 "$msg_file")
+types='feat|fix|docs|refactor|test|build|ci|chore'
+
+fail() {
+  printf 'commit-msg: %s\n  subject: %s\n  see CLAUDE.md, section "Коммиты"\n' "$1" "$subject" >&2
+  exit 1
+}
+
+case "$subject" in
+  Merge\ *|Revert\ *|fixup!\ *|squash!\ *) exit 0 ;;
+  "chore(auto)"*) fail 'auto-generated message is not allowed' ;;
+esac
+
+printf '%s' "$subject" | grep -Eq "^(${types})(\([a-z0-9-]+\))?: .+" \
+  || fail "subject must be '<type>(<scope>): <summary>', type = ${types}"
+
+[ "${#subject}" -le 72 ] || fail 'subject longer than 72 characters'
+
+# Report commits are generated; everything else must list what was done.
+case "$subject" in docs\(report\):*) exit 0 ;; esac
+
+grep -v '^#' "$msg_file" | tail -n +2 | grep -q '^- ' \
+  || fail 'body must list what was done as "- ..." bullet lines'
