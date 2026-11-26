@@ -13,7 +13,7 @@
     "negative": ["minor-looking features", "plastic skin", "extra fingers", "text or watermarks"]
   },
   "voice": {
-    "language": null,
+    "language": "en",
     "tone": null
   },
   "content": {
