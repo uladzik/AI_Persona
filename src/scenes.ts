@@ -21,7 +21,7 @@ if (refs.length === 0) throw new Error("Pass at least one reference image path")
 
 const imageUrls = await Promise.all(refs.map(uploadLocal));
 const look = describePersona(loadPersona());
-const outDir = `output/scenes-${new Date().toISOString().slice(0, 10)}`;
+const outDir = `output/scenes-${new Date().toISOString().slice(0, 16).replace(/[T:]/g, "-")}`;
 
 for (const [i, scene] of SCENES.entries()) {
   const prompt =

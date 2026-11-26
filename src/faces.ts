@@ -11,7 +11,7 @@ const prompt =
   `Close-up portrait photo of a ${describePersona(persona)} ` +
   "Looking at the camera, soft daylight, neutral background, shot on 85mm, natural skin texture, no makeup look.";
 
-const outDir = `output/faces-${new Date().toISOString().slice(0, 10)}`;
+const outDir = `output/faces-${new Date().toISOString().slice(0, 16).replace(/[T:]/g, "-")}`;
 for (let seed = 1; seed <= count; seed++) {
   const [file] = await generate(
     ENDPOINT,

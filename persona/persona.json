@@ -5,12 +5,17 @@
   "age": 25,
   "appearance": {
     "build": "athletic, toned, sporty",
-    "face": "attractive, natural look, freckles across nose and cheeks",
-    "skin": "light skin with visible natural freckles, realistic skin texture",
-    "hair": null,
-    "eyes": null,
-    "style": null,
-    "negative": ["minor-looking features", "plastic skin", "extra fingers", "text or watermarks"]
+    "face": "beautiful mixed East Asian and European woman with pronounced East Asian features, almond-shaped eyes, soft jawline, freckles across nose and cheeks",
+    "skin": "fair porcelain skin with visible natural freckles, realistic skin texture",
+    "hair": "jet-black straight blunt chin-length bob, center part",
+    "eyes": "light grey-green eyes",
+    "style": "minimal sporty look: black athletic tank top, over-ear headphones around the neck",
+    "negative": [
+      "minor-looking features",
+      "plastic skin",
+      "extra fingers",
+      "text or watermarks"
+    ]
   },
   "voice": {
     "language": "en",
