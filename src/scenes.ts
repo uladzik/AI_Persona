@@ -21,6 +21,13 @@ const SCENES = [
   { action: "sitting in a cafe holding a flat white, window light", face: "laughing with eyes crinkled, relaxed" },
   { action: "selfie on a mountain hiking trail, windy hair, backpack straps", face: "wide genuine smile, wind-reddened cheeks" },
   { action: "at home on a yoga mat stretching, morning light, casual top", face: "calm, eyes half closed, no makeup" },
+  {
+    action:
+      "standing still on a city river embankment at sunrise after a run, full-body shot from head to toe with shoes visible, " +
+      "relaxed natural stance. Photographed by a friend standing 4 metres away, camera at waist height, 50mm lens, " +
+      "straight-on angle, natural body proportions, no wide-angle distortion, not a selfie",
+    face: "catching her breath, soft half smile, light sweat",
+  },
 ];
 
 const REALISM =
