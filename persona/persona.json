@@ -4,12 +4,12 @@
   "name": null,
   "age": 25,
   "appearance": {
-    "build": "athletic, toned, sporty",
-    "face": "beautiful mixed East Asian and European woman with pronounced East Asian features, almond-shaped eyes, soft jawline, freckles across nose and cheeks",
-    "skin": "fair porcelain skin with visible natural freckles, realistic skin texture",
-    "hair": "jet-black straight blunt chin-length bob, center part",
-    "eyes": "light grey-green eyes",
-    "style": "minimal sporty look: black athletic tank top, over-ear headphones around the neck",
+    "build": "slim athletic build",
+    "face": "pretty woman with soft delicate features, straight nose, full lips, relaxed heavy-lidded gaze, dense natural freckles across nose and cheeks",
+    "skin": "pale fair skin with many natural freckles, slightly flushed cheeks, realistic skin texture with pores",
+    "hair": "jet-black shaggy layered bob just above the shoulders with wispy bangs, slightly messy",
+    "eyes": "pale grey-blue eyes with dark lashes",
+    "style": "soft grunge look: grey ribbed tank top, thin black choker, layered silver necklaces with a small stone pendant, white wired earphones hanging around the neck",
     "negative": [
       "minor-looking features",
       "plastic skin",
