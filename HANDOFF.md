@@ -80,3 +80,6 @@
   Новый скрипт `pnpm tweak <face>` правит выбранное лицо под текущий канон (Seedream edit ×2 + Nano Banana 2 edit),
   $0.16, `output/tweak-2026-11-27-12-53/` + `sheet.jpg` (оригинал | seedream-s1 | seedream-s2 | nanobanana).
   Всего потрачено $1.10 из $3. Seedream заметно сузил разрез глаз; Nano Banana почти не изменил лицо.
+- Владелец выбрал вариант 4 (Nano Banana) и попросил усилить микс. `pnpm tweak` получил фильтр по id прогонов;
+  `pnpm tweak <nanobanana.png> seedream-s1 seedream-s2`: $0.08, `output/tweak-2026-11-27-14-15/` + `sheet.jpg`
+  (вариант 4 | s1 | s2). s1 — микс заметен, взгляд открытый; s2 — веки тяжелее, микс сильнее. Всего $1.18 из $3.

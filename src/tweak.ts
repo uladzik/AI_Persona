@@ -1,5 +1,5 @@
 // Re-renders a chosen face so it matches the current canon face text, keeping identity and framing.
-// Usage: pnpm tweak <face.jpg>
+// Usage: pnpm tweak <face.jpg> [run ids...]  (no ids = all runs)
 import { loadPersona } from "./lib/canon.js";
 import { budgetLine, generate, uploadLocal } from "./lib/fal.js";
 
@@ -9,8 +9,10 @@ const RUNS = [
   { id: "nanobanana", endpoint: "fal-ai/nano-banana-2/edit", usd: 0.08, extra: { aspect_ratio: "3:4" } },
 ];
 
-const [face] = process.argv.slice(2);
+const [face, ...ids] = process.argv.slice(2);
 if (!face) throw new Error("Pass the face image path");
+const runs = ids.length ? RUNS.filter((r) => ids.includes(r.id)) : RUNS;
+if (runs.length !== (ids.length || RUNS.length)) throw new Error(`Unknown run id; known: ${RUNS.map((r) => r.id).join(", ")}`);
 
 const imageUrls = [await uploadLocal(face)];
 const prompt =
@@ -19,7 +21,7 @@ const prompt =
   "Photorealistic, natural skin texture.";
 const outDir = `output/tweak-${new Date().toISOString().slice(0, 16).replace(/[T:]/g, "-")}`;
 
-for (const r of RUNS) {
+for (const r of runs) {
   const [file] = await generate(r.endpoint, { prompt, image_urls: imageUrls, ...r.extra }, r.usd, outDir, r.id);
   process.stdout.write(`${file}\n`);
 }
