@@ -6,7 +6,8 @@
     "faces": "tsx --env-file=.env src/faces.ts",
     "scenes": "tsx --env-file=.env src/scenes.ts",
     "typecheck": "tsc --noEmit",
-    "explore": "tsx --env-file=.env src/explore.ts"
+    "explore": "tsx --env-file=.env src/explore.ts",
+    "tweak": "tsx --env-file=.env src/tweak.ts"
   },
   "dependencies": {
     "@fal-ai/client": "1.11.0"

@@ -76,3 +76,7 @@
 **Next steps:**
 
 - Владелец выбирает номер лица → `pnpm scenes <face.jpg>` (5 сцен × 2 модели, $0.60) или урезанный раунд ≤ $0.20.
+- Владелец выбрал №2 + «чуть азиатской внешности, ~15%». В канон (`appearance.face`) добавлен лёгкий East Asian микс.
+  Новый скрипт `pnpm tweak <face>` правит выбранное лицо под текущий канон (Seedream edit ×2 + Nano Banana 2 edit),
+  $0.16, `output/tweak-2026-11-27-12-53/` + `sheet.jpg` (оригинал | seedream-s1 | seedream-s2 | nanobanana).
+  Всего потрачено $1.10 из $3. Seedream заметно сузил разрез глаз; Nano Banana почти не изменил лицо.
