@@ -1,9 +1,9 @@
 // Puts the chosen face into test scenes on each candidate model.
-// Usage: pnpm scenes <face.jpg> [more reference images...]
+// Usage: pnpm scenes [--only=<model id>] <face.jpg> [more reference images...]
 import { describePersona, loadPersona } from "./lib/canon.js";
 import { budgetLine, generate, uploadLocal } from "./lib/fal.js";
 
-const MODELS = [
+const ALL_MODELS = [
   { id: "seedream", endpoint: "fal-ai/bytedance/seedream/v4.5/edit", usd: 0.04, size: { image_size: "portrait_4_3" } },
   { id: "nanobanana", endpoint: "fal-ai/nano-banana-2/edit", usd: 0.08, size: { aspect_ratio: "3:4" } },
 ];
@@ -16,7 +16,11 @@ const SCENES = [
   "at home on a yoga mat stretching, morning light, casual top",
 ];
 
-const refs = process.argv.slice(2);
+const args = process.argv.slice(2);
+const only = args.find((a) => a.startsWith("--only="))?.slice("--only=".length);
+const refs = args.filter((a) => !a.startsWith("--only="));
+const MODELS = only ? ALL_MODELS.filter((m) => m.id === only) : ALL_MODELS;
+if (MODELS.length === 0) throw new Error(`Unknown model id "${only}"; known: ${ALL_MODELS.map((m) => m.id).join(", ")}`);
 if (refs.length === 0) throw new Error("Pass at least one reference image path");
 
 const imageUrls = await Promise.all(refs.map(uploadLocal));
