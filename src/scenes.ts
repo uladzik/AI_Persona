@@ -26,7 +26,9 @@ const SCENES: Scene[] = [
       "standing on a city river embankment at sunrise after a run, full-body shot from head to toe with shoes visible. " +
       "Relaxed asymmetric pose: weight on one leg, hip shifted, body turned three-quarters to the camera, one hand holding " +
       "a water bottle, the other pulling out an earphone, glancing to the side. Realistic adult proportions, head about " +
-      "one-eighth of her height, toned athletic arms and legs with natural skin texture. Low sun behind her: warm rim light " +
+      "one-eighth of her height. Fit, sporty body of a regular runner, not skinny: toned shoulders and arms, strong thighs " +
+      "and calves with visible muscle, natural skin texture. Black running shorts, simple running shoes with low ankle " +
+      "socks, bare legs from ankle to thigh, no knee socks or leg warmers. Low sun behind her: warm rim light " +
       "on hair and shoulders, front of the body in soft shade. Photographed by a friend 4 metres away, camera at waist " +
       "height, 50mm lens, not a selfie",
     face: "catching her breath, soft half smile, light sweat",
